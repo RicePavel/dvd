@@ -17,11 +17,12 @@
   
  <%@include file="/WEB-INF/views/errors.jsp" %>
 
-  
   <form action="<c:url value="/User/registration" />"> 
-    Логин: <input type="text" name="login" /> <br/>
-    пароль: <input type="password" name="password" /> <br/>
-    Повторите пароль: <input type="password" name="password2" /> <br/>
+    Логин*: <input type="text" name="login" /> <br/>
+    Пароль*: <input type="password" name="password" /> <br/>
+    Повторите пароль*: <input type="password" name="password2" /> <br/>
+    Имя*: <input type="text" name="name" /> <br/>
+    Фамилия*: <input type="text" name="surname" /> <br/>
     <input type="submit" name="submit" value="Регистрироваться" />
   </form>
 </c:if>

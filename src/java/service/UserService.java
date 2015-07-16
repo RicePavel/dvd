@@ -7,6 +7,7 @@ package service;
 
 import dao.UserDao;
 import entity.User;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
@@ -14,6 +15,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import support.EntityValidator;
 
 /**
  *
@@ -26,6 +28,9 @@ public class UserService {
   @Autowired
   private UserDao userDao;
   
+  @Autowired
+  private EntityValidator validator;
+  
   /**
    * 
    * @return вернет текущего авторизованного пользователя. Может вернуть null
@@ -34,14 +39,16 @@ public class UserService {
     return userDao.getUserByLogin(getUserName());
   }
   
-  public void registration(String login, String password, String name, String surname, String middlename) {
+  public void registration(String login, String password, String name, String surname, List<String> errors) {
     User user = new User();
     user.setLogin(login);
     user.setPassword(password);
     user.setName(name);
     user.setSurname(surname);
-    user.setMiddlename(middlename);
-    userDao.save(user);
+    validator.validate(errors, user);
+    if (errors.isEmpty()) {
+      userDao.save(user);
+    }
   }
 
   public static String getUserName() {

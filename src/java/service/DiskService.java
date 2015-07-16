@@ -14,6 +14,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import support.EntityValidator;
 import support.StringUtils;
 
 /**
@@ -33,18 +34,20 @@ public class DiskService {
   @Autowired
   private TakenItemDao takenItemDao;
 
+  @Autowired
+  private EntityValidator validator;
+
   public List<Disk> getFreeDisks() {
     User currentUser = userService.getCurrentUser();
     return diskDao.getFreeDisks(currentUser.getUserId());
   }
 
   public void addDisk(Disk disk, List<String> errors) {
-    if (StringUtils.notEmpty(disk.getName())) {
-      User user = userService.getCurrentUser();
-      disk.setOwner(user);
+    User user = userService.getCurrentUser();
+    disk.setOwner(user);
+    validator.validate(errors, disk);
+    if (errors.isEmpty()) {
       diskDao.save(disk);
-    } else {
-      errors.add("Не передано название");
     }
   }
 

@@ -33,19 +33,13 @@ public class UserController {
           @RequestParam(value = "password2", required = false) String password2,
           @RequestParam(value = "name", required = false) String name,
           @RequestParam(value = "surname", required = false) String surname,
-          @RequestParam(value = "middlename", required = false) String middlename,
           @RequestParam(value = "submit", required = false) String submit) {
     List<String> errors = new ArrayList();
     if (StringUtils.notEmpty(submit)) {
-      if (StringUtils.notEmpty(login) && StringUtils.notEmpty(password) && StringUtils.notEmpty(password2)
-              && StringUtils.notEmpty(name) && StringUtils.notEmpty(surname) && StringUtils.notEmpty(middlename)) {
-        if (password.equals(password2)) {
-          userService.registration(login, password, name, surname, middlename);
-        } else {
-          errors.add("Введенные пароли не совпадают");
-        }
+      if (password.equals(password2)) {
+        userService.registration(login, password, name, surname, errors);
       } else {
-        errors.add("Не все параметры переданы");
+        errors.add("Введенные пароли не совпадают");
       }
       if (errors.isEmpty()) {
         model.put("success", "true");

@@ -25,23 +25,19 @@ public class User {
   @Column(name = "user_id")
   private Long userId;
 
-  @NotEmpty
+  @NotEmpty(message = "не передан обязательный параметр - имя")
   @Column(name = "name")
   private String name;
 
-  @NotEmpty
+  @NotEmpty(message = "не передан обязательный параметр - фамилия")
   @Column(name = "surname")
   private String surname;
 
-  @NotEmpty
-  @Column(name = "middlename")
-  private String middlename;
-
-  @NotEmpty
+  @NotEmpty(message = "не передан обязательный параметр - логин")
   @Column(name = "login")
   private String login;
   
-  @NotEmpty
+  @NotEmpty(message = "не передан обязательный параметр - пароль")
   @Column(name = "password")
   private String password;
   
@@ -67,14 +63,6 @@ public class User {
 
   public void setSurname(String surname) {
     this.surname = surname;
-  }
-
-  public String getMiddlename() {
-    return middlename;
-  }
-
-  public void setMiddlename(String middlename) {
-    this.middlename = middlename;
   }
 
   public String getPassword() {

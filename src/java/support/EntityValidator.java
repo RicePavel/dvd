@@ -9,11 +9,13 @@ import java.util.List;
 import java.util.Set;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author Rice Pavel
  */
+@Component
 public class EntityValidator {
   
    public <T> void validate(List<String> errors, T ent) {
