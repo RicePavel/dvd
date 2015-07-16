@@ -11,20 +11,22 @@
 
 <%@include file="/WEB-INF/views/menu.jsp" %>
 
-<h2>Диски, которые у меня взяли</h2>
+<h2 class="standart-head" >Диски, которые у меня взяли</h2>
 
-<table> 
-  <tr>
-    <th>Диск</th>
-    <th>кто взял</th>
-    <th> </th>
-  </tr>
-  <c:forEach items="${takenItemList}" var="item" >
+<div class="standart-div">
+  <table class="table"> 
     <tr>
-    <td>${item.disk.name}</td>
-    <td>${item.user.surname} ${item.user.name}</td>
+      <th>Диск</th>
+      <th>кто взял</th>
+      <th> </th>
     </tr>
-  </c:forEach>
-</table>
+    <c:forEach items="${takenItemList}" var="item" >
+      <tr>
+        <td>${item.disk.name}</td>
+        <td>${item.user.surname} ${item.user.name}</td>
+      </tr>
+    </c:forEach>
+  </table>
+</div>
 
 <%@include file="/WEB-INF/views/bottom.jsp" %>

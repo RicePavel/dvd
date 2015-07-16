@@ -9,7 +9,7 @@
   
   <http auto-config='true' use-expressions="true" >
     
-    <intercept-url pattern="/User/registration" access="hasRole('ANONYM')" />
+    <intercept-url pattern="/User/registration" access="hasAnyRole('USER', 'ANONYM')" />
     
     <intercept-url pattern="/login.jsp" access="hasAnyRole('USER', 'ANONYM')" />
     <intercept-url pattern="/*" access="hasRole('USER')" />

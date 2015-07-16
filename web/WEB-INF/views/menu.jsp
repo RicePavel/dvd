@@ -6,10 +6,11 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-
-<a href="<c:url value="/Disk/allMyDiskList" />" >Все мои диски</a>
-<a href="<c:url value="/Disk/add" />">Добавить новый диск</a>
-<a href="<c:url value="/Disk/free" />">Свободные диски</a>
-<a href="<c:url value="/Disk/takeList" />">Диски, взятые мной</a>
-<a href="<c:url value="/Disk/takeOthers" />">Диски, взятые у меня</a>
-<a href="<c:url value="/logout" />" >Выйти из системы</a>
+<div style="margin: 50px;">
+  <a class="btn btn-default" role="button" href="<c:url value="/Disk/allMyDiskList" />" >Все мои диски</a>
+  <a class="btn btn-default" role="button" href="<c:url value="/Disk/add" />">Добавить новый диск</a>
+  <a class="btn btn-default" role="button" href="<c:url value="/Disk/free" />">Свободные диски</a>
+  <a class="btn btn-default" role="button" href="<c:url value="/Disk/takeList" />">Диски, взятые мной</a>
+  <a class="btn btn-default" role="button" href="<c:url value="/Disk/takeOthers" />">Диски, взятые у меня</a>
+  <a class="btn btn-default" role="button" href="<c:url value="/logout" />" >Выйти из системы</a>
+</div>

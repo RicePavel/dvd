@@ -8,7 +8,9 @@
 
 
 <c:if test="${errors != null && !errors.isEmpty()}" > 
-  <c:forEach items="${errors}" var="error">
-    ${error}
-  </c:forEach>
+  <p class="bg-danger standart-message">
+    <c:forEach items="${errors}" var="error">
+      ${error} <br/>
+    </c:forEach>
+  </p>
 </c:if>

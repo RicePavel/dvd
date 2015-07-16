@@ -11,15 +11,17 @@
 
 <%@include file="/WEB-INF/views/menu.jsp" %>
 
-<h2>Свободные диски</h2>
+<h2 class="standart-head">Свободные диски</h2>
 
-<table> 
-  <c:forEach items="${diskList}" var="disk" >
-    <tr>
-      <td>${disk.name}</td>
-      <td> <a href="<c:url value="/Disk/take?diskId=${disk.diskId}" />">Взять</a> </td>
-    </tr>
-  </c:forEach>
-</table>
+<div class="standart-div">
+  <table class="table"> 
+    <c:forEach items="${diskList}" var="disk" >
+      <tr>
+        <td>${disk.name}</td>
+        <td> <a сlass="btn btn-default" role="button" href="<c:url value="/Disk/take?diskId=${disk.diskId}" />">Взять</a> </td>
+      </tr>
+    </c:forEach>
+  </table>
+</div>
 
 <%@include file="/WEB-INF/views/bottom.jsp" %>

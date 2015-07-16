@@ -11,7 +11,8 @@
 
 <%@include file="/WEB-INF/views/menu.jsp" %>
 
-<table> 
+<div class="standart-div">
+<table class="table"> 
   <tr>
     <th>Диск</th>
     <th>Кто взял</th>
@@ -29,5 +30,6 @@
     </tr>
   </c:forEach>
 </table>
+</div>
 
 <%@include file="/WEB-INF/views/bottom.jsp" %>

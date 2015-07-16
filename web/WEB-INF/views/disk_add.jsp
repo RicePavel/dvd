@@ -12,15 +12,19 @@
 <%@include file="/WEB-INF/views/menu.jsp" %>
 
 <c:if test="${success}" > 
-  Диск успешно добавлен!
-</c:if>
+  <p class="bg-success standart-message">
+    Диск успешно добавлен!
+  <p>
+  </c:if>
 
-<%@include file="/WEB-INF/views/errors.jsp" %>
+  <%@include file="/WEB-INF/views/errors.jsp" %>
 
-<form:form modelAttribute="disk" >
-  Название диска: <br/>
-  <form:input path="name" />
-  <input type="submit" name="submit" value="Добавить диск" />
+  <form:form modelAttribute="disk" role="form" class="standart-form" >
+  <div class="form-group">
+    <label for="nameInput"> Название диска: </label>
+    <form:input path="name"  placeholder="Название диска" class="form-control" id="nameInput" />
+  </div>
+  <input type="submit" name="submit" value="Добавить диск"  class="btn btn-default" />
 </form:form>
 
-  <%@include file="/WEB-INF/views/bottom.jsp" %>
+<%@include file="/WEB-INF/views/bottom.jsp" %>

@@ -11,19 +11,24 @@
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
-    <!--bean id="propertyConfigurer"
-          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
-          p:location="/WEB-INF/jdbc.properties" />
-
-  -->
-
+  
   <bean id="dataSource"
-       class="org.springframework.jdbc.datasource.DriverManagerDataSource"
-       p:driverClassName="org.apache.derby.jdbc.ClientDriver"
-       p:url="jdbc:derby://localhost:1527/dvd2"
-       p:username="dvd"
-       p:password="qwerty"
-    />
+         class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+         p:driverClassName="org.hsqldb.jdbcDriver"
+         p:url="jdbc:hsqldb:file:testdb"
+         p:username="SA"
+         p:password=""
+  />
+  
+  <!--
+<bean id="dataSource"
+     class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+     p:driverClassName="org.apache.derby.jdbc.ClientDriver"
+     p:url="jdbc:derby://localhost:1527/dvd2"
+     p:username="dvd"
+     p:password="qwerty"
+  />
+  -->
         
   <!-- Настраивает управление транзакциями с помощью аннотации @Transactional -->
   <tx:annotation-driven transaction-manager="transactionManager" /> 
@@ -31,7 +36,7 @@
   
   <!-- Менеджер транзакций -->
   <bean id="transactionManager"
-          class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        class="org.springframework.orm.hibernate4.HibernateTransactionManager">
     <property name="sessionFactory" ref="sessionFactory" />
   </bean>
   
@@ -46,12 +51,26 @@
     <property name="packagesToScan" value="entity" />
     <property name="hibernateProperties">
       <props>
+        <prop key="dialect">org.hibernate.dialect.HSQLDialect</prop> 
+        <prop key="hibernate.hbm2ddl.auto">update</prop>
+        <prop key="hibernate.enable_lazy_load_no_trans">true</prop>
+      </props>
+    </property>
+  </bean>
+    
+  <!--
+  <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" >
+    <property name="dataSource" ref="dataSource" />
+    <property name="packagesToScan" value="entity" />
+    <property name="hibernateProperties">
+      <props>
         <prop key="dialect">org.Hibernate.dialect.DerbyDialect</prop> 
         <prop key="hibernate.hbm2ddl.auto">update</prop>
         <prop key="hibernate.enable_lazy_load_no_trans">true</prop>
       </props>
     </property>
   </bean>
+  -->
   
   <import resource="security.xml" />
 
