@@ -34,6 +34,9 @@ public class Disk {
   @Column(name = "name")
   private String name;
   
+  @Column(name = "description")
+  private String description;
+  
   @NotNull
   @ManyToOne
   @JoinColumn(name = "owner_id")
@@ -72,6 +75,14 @@ public class Disk {
 
   public void setTakenItemList(List<TakenItem> takenItemList) {
     this.takenItemList = takenItemList;
+  }
+
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 }

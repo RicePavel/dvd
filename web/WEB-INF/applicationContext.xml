@@ -15,7 +15,7 @@
   <bean id="dataSource"
          class="org.springframework.jdbc.datasource.DriverManagerDataSource"
          p:driverClassName="org.hsqldb.jdbcDriver"
-         p:url="jdbc:hsqldb:file:testdb"
+         p:url="jdbc:hsqldb:file:dvd2"
          p:username="SA"
          p:password=""
   />
@@ -81,5 +81,6 @@
   <context:component-scan base-package="entity"/>
   <context:component-scan base-package="service"/>
   <context:component-scan base-package="support" />
+  <context:component-scan base-package="startup" />
   
 </beans>

@@ -5,9 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="/WEB-INF/views/tags.jsp" %>
+<%@include file="/WEB-INF/jsp/tags.jsp" %>
 
-<%@include file="/WEB-INF/views/head.jsp" %>
+<%@include file="/WEB-INF/jsp/head.jsp" %>
 
 <c:if test="${success}" >
   <p class="bg-success standart-message">
@@ -17,7 +17,7 @@
 
   <c:if test="${! success}">
 
-    <%@include file="/WEB-INF/views/errors.jsp" %>
+    <%@include file="/WEB-INF/jsp/errors.jsp" %>
 
   <div>
     <form action="<c:url value="/User/registration" />" role="form" class="standart-form" > 
@@ -51,4 +51,4 @@
   </div>
 </c:if>
 
-<%@include file="/WEB-INF/views/bottom.jsp" %>
+<%@include file="/WEB-INF/jsp/bottom.jsp" %>

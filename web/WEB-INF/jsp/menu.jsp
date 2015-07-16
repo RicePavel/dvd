@@ -11,6 +11,6 @@
   <a class="btn btn-default" role="button" href="<c:url value="/Disk/add" />">Добавить новый диск</a>
   <a class="btn btn-default" role="button" href="<c:url value="/Disk/free" />">Свободные диски</a>
   <a class="btn btn-default" role="button" href="<c:url value="/Disk/takeList" />">Диски, взятые мной</a>
-  <a class="btn btn-default" role="button" href="<c:url value="/Disk/takeOthers" />">Диски, взятые у меня</a>
+  <a class="btn btn-default" role="button" href="<c:url value="/Disk/takeOthers" />">Диски, отданные другим</a>
   <a class="btn btn-default" role="button" href="<c:url value="/logout" />" >Выйти из системы</a>
 </div>

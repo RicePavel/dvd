@@ -5,13 +5,13 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="/WEB-INF/views/tags.jsp" %>
+<%@include file="/WEB-INF/jsp/tags.jsp" %>
 
-<%@include file="/WEB-INF/views/head.jsp" %>
+<%@include file="/WEB-INF/jsp/head.jsp" %>
 
-<%@include file="/WEB-INF/views/menu.jsp" %>
+<%@include file="/WEB-INF/jsp/menu.jsp" %>
 
-<h2 class="standart-head" >Диски, которые у меня взяли</h2>
+<h2 class="standart-head" >Диски, отданные другим</h2>
 
 <div class="standart-div">
   <table class="table"> 
@@ -29,4 +29,4 @@
   </table>
 </div>
 
-<%@include file="/WEB-INF/views/bottom.jsp" %>
+<%@include file="/WEB-INF/jsp/bottom.jsp" %>

@@ -41,6 +41,14 @@ public class DiskService {
     User currentUser = userService.getCurrentUser();
     return diskDao.getFreeDisks(currentUser.getUserId());
   }
+  
+  public void delete(Long diskId) {
+    User currentUser = userService.getCurrentUser();
+    Disk disk = diskDao.find(diskId);
+    if (disk.getOwner().getUserId().equals(currentUser.getUserId())) {
+      diskDao.delete(disk);
+    }
+  }
 
   public void addDisk(Disk disk, List<String> errors) {
     User user = userService.getCurrentUser();

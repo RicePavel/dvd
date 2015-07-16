@@ -5,11 +5,11 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="/WEB-INF/views/tags.jsp" %>
+<%@include file="/WEB-INF/jsp/tags.jsp" %>
 
-<%@include file="/WEB-INF/views/head.jsp" %>
+<%@include file="/WEB-INF/jsp/head.jsp" %>
 
-<%@include file="/WEB-INF/views/menu.jsp" %>
+<%@include file="/WEB-INF/jsp/menu.jsp" %>
 
 <c:if test="${success}" > 
   <p class="bg-success standart-message">
@@ -17,14 +17,18 @@
   <p>
   </c:if>
 
-  <%@include file="/WEB-INF/views/errors.jsp" %>
-
-  <form:form modelAttribute="disk" role="form" class="standart-form" >
+  <%@include file="/WEB-INF/jsp/errors.jsp" %>
+ 
+<form action="<c:url value="/Disk/add" />" class="standart-form" > 
   <div class="form-group">
     <label for="nameInput"> Название диска: </label>
-    <form:input path="name"  placeholder="Название диска" class="form-control" id="nameInput" />
+    <input type="text" name="name"  placeholder="Название диска" class="form-control" id="nameInput" />
+  </div>
+  <div class="form-group">
+    <label for="description"> Описание диска: </label>
+    <textarea name="description" class="form-control"> </textarea>
   </div>
   <input type="submit" name="submit" value="Добавить диск"  class="btn btn-default" />
-</form:form>
+</form>
 
-<%@include file="/WEB-INF/views/bottom.jsp" %>
+<%@include file="/WEB-INF/jsp/bottom.jsp" %>

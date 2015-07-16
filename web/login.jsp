@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<%@include file="/WEB-INF/views/head.jsp" %>
+<%@include file="/WEB-INF/jsp/head.jsp" %>
 
     <c:if test="${not empty param.error}">
       <font color="red"> Ошибка:
@@ -24,4 +24,4 @@
 
     <a style="margin:50px;" class="btn btn-primary" role="button" href="<c:url value="/User/registration" />">Регистрация</a>
 
-  <%@include file="/WEB-INF/views/bottom.jsp" %>
+  <%@include file="/WEB-INF/jsp/bottom.jsp" %>

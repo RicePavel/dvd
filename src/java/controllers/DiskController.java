@@ -34,7 +34,35 @@ public class DiskController {
     model.put("diskList", diskList);
     return "disk_free_list";
   }
+  
+  @RequestMapping("/delete")
+  public String delete(Map<String, Object> model, Long diskId) {
+    diskService.delete(diskId);
+    return "redirect:/Disk/allMyDiskList";
+  }
 
+  @RequestMapping("/add")
+  public String addDisk(Map<String, Object> model, @RequestParam(value = "name", required = false) String name, 
+          @RequestParam(value = "description", required = false) String description,
+          String submit) {
+    List<String> errors = new ArrayList();
+    if (submit != null && !submit.isEmpty()) {
+      Disk disk = new Disk();
+      disk.setDescription(description);
+      disk.setName(name);
+      diskService.addDisk(disk, errors);
+      if (errors.isEmpty()) {
+        model.put("success", "true");
+      }
+      model.put("errors", errors);
+    }
+    if (errors.isEmpty()) {
+      model.put("disk", new Disk());
+    }
+    return "disk_add";
+  }
+  
+  /*
   @RequestMapping("/add")
   public String addDisk(Map<String, Object> model, @ModelAttribute("disk") Disk disk, String submit) {
     List<String> errors = new ArrayList();
@@ -50,6 +78,7 @@ public class DiskController {
     }
     return "disk_add";
   }
+  */
 
   /**
    * диски, которые взял пользователь

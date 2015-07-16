@@ -24,11 +24,14 @@
   
   <authentication-manager>
     <authentication-provider user-service-ref="org.springframework.security.core.userdetails.UserDetailsService">
+      <password-encoder ref="passwordEncoder" />
     </authentication-provider>
   </authentication-manager>
 
+  <beans:bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder"/>    
+
   <beans:bean name="org.springframework.security.core.userdetails.UserDetailsService"
-                class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
+              class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
     <beans:property name="dataSource" ref="dataSource"/>
     <beans:property name="usersByUsernameQuery" value="select login, password, 'true' from users where login = ?"/>
                                 
